@@ -1,0 +1,75 @@
+<html>
+
+<body>
+<p>
+    <button onClick='showPrompt()'> Click me to enter your name </button>
+</p>
+
+<p>
+    <button onClick='showAlert()'> Click on me to sort names alphabetically </button>
+</p>
+
+
+<script>
+
+    let personOne = '';
+    let personTwo = '';
+    let personThree = '';
+    let personArray = [];
+
+    function showPrompt() {
+
+        let personOne = prompt('Please enter name of Person 1', 'enter here.');
+        let personTwo = prompt('Please enter name of Person 2', 'enter here.');
+        let personThree = prompt('Please enter name of Person 3', 'enter here.');
+
+        if (personOne!= null && personTwo != null && personThree != null) {
+
+            personArray.push(personOne, personTwo, personThree);
+
+            outputNames();
+            personArray.length = 0;
+        }
+        
+    }
+
+    function outputNames(){
+
+        for( person of personArray){
+
+            let element = document.createElement('p');
+            element.textContent = `Hello ${person}`;
+            document.body.appendChild(element);
+        }
+    
+    }
+
+
+
+    function showAlert(){
+
+        let namesOfPersons = '';
+
+        personArray.sort();
+
+        for(person of personArray){
+
+            namesOfPersons += person + ', ';
+        }
+
+        alert('Here are the names sorted alphabetically:' + namesOfPersons);
+
+
+    }
+
+    function countCharacters(name){
+
+        return name.length;
+    }
+
+
+
+</script>
+
+
+</body>
