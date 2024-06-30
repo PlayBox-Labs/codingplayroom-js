@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Entries</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <p>
+        <h3>Login</h3>
+        <input id="email" placeholder="email"> </input> 
+        <input id="password" placeholder="password"> </input>
+        <button id="loginButton"> Login </button> 
+        <h5 id="loginMessage"></h5>
+    </p>
+    <p>
+        <h3>Table Select</h3>
+            <select name="subject" id="subject">
+              <option value="Suppliers" selected="selected">Suppliers</option>
+              <option value="Recipes" selected="selected">Recipes</option>
+              <option value="Purchases" selected="selected">Purchases</option>
+              <option value="Ingredients" selected="selected">Ingredients</option>
+              <option value="Ingredient_Changelog" selected="selected">Ingredient_Changelog</option>
+            </select>
+            <p></p>
+            <button id="getDataButton"> Get Data </button>
+            <button id="inputDataButton"> Input Data </button>
+            <button id="editDataButton"> Edit Data </button>
+    </p>
+
+    <p>
+        <table id="entryTable">
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+            
+        </table>
+    </p>
+    <p>
+        <table id="editTable">
+        <h3 id="message"></h3>
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </p>
+
+    <p id="submitInputDataButton"></p>
+    <p id="submitEditDataButton"></p>
+    <p id="resultMessage"></p>
+    
+    <script type="module" src="../scripts.js"></script>
+    <script type="module">
+        import {login, outputGetAllView, outputInputView, insertDataOnClick, editDataOnClick, outputEditView} from '../scripts.js'
+        document.querySelector('#loginButton').addEventListener('click', login);
+        document.querySelector('#getDataButton').addEventListener('click', outputGetAllView);
+        document.querySelector('#inputDataButton').addEventListener('click', outputInputView);
+        document.querySelector('#editDataButton').addEventListener('click', outputEditView);
+        document.querySelector('#submitInputDataButton').addEventListener('click', insertDataOnClick);
+        document.querySelector('#submitEditDataButton').addEventListener('click', editDataOnClick);
+    </script>
+</body>
+</html>

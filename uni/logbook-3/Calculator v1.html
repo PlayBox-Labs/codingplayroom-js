@@ -1,0 +1,101 @@
+<html>
+ <head>
+  <script type="text/javascript">
+    function product(a,b)
+    {
+      return a*b
+    }
+
+    function divide(a,b)
+    {
+      return a/b
+    }
+
+    function add(a,b)
+    {
+      return a+b
+    }
+
+    function substract(a,b)
+    {
+      return a-b
+    }
+
+    function findMin(a,b)
+    {
+      return a > b ? b : a;
+    }
+
+    function findMax(a,b)
+    {
+      return a > b ? a : b;
+    }
+
+    function power(a,b)
+    {
+      return Math.pow(a,b);
+    }
+   </script>
+</head>
+
+<body>
+  <script type="text/javascript">
+
+    var calcAgain = true;
+
+    while(calcAgain){
+
+     var value1=Number.parseInt(prompt("Please enter first number here","first number"))
+     var value2=Number.parseInt(prompt("Please enter second number here","second number"))
+     var value3=prompt("Please enter the operation function (multiply, add, substract, min, max, power) or enter alert to see all calculations","function")
+
+    switch(value3){
+      case "multiply":
+        document.write(`The product of ${value1} and ${value2} is ` + product(value1,value2))
+        break;
+      case "add":
+        document.write(`The addition of ${value1} and ${value2} is ` + add(value1,value2))
+        break;
+      case "subtract":
+        document.write(`The subtraction of ${value1} and ${value2} is ` + substract(value1,value2))
+        break;
+      case "min":
+        document.write(`The minimum between ${value1} and ${value2} is ` + findMin(value1,value2))
+        break;
+      case "max": 
+        document.write(`The maximum between ${value1} and ${value2} is ` + findMax(value1,value2))
+        break;        
+      case "power":
+        document.write(`The power of ${value1} by ${value2} is ` + power(value1,value2))
+        break;   
+      case "alert":
+        alert(`To see therese results in an alert box click NOW`);
+        document.write(`The product of ${value1} and ${value2} is ` + product(value1,value2) + "<br>")
+          document.write(`The addition of ${value1} and ${value2} is ` + add(value1,value2) + "<br>")
+          document.write(`The subtraction of ${value1} and ${value2} is ` + substract(value1,value2) + "<br>")
+          document.write(`The minimum between ${value1} and ${value2} is ` + findMin(value1,value2) + "<br>")
+          document.write(`The maximum between ${value1} and ${value2} is ` + findMax(value1,value2) + "<br>")
+          document.write(`The power of ${value1} by ${value2} is ` + power(value1,value2) + "<br>")
+
+        alert(
+          `The product of ${value1} and ${value2} is ` + product(value1,value2) + "\n" + 
+          `The addition of ${value1} and ${value2} is ` + add(value1,value2) + "\n" + 
+          `The subtraction of ${value1} and ${value2} is ` + substract(value1,value2) + "\n" + 
+          `The minimum between ${value1} and ${value2} is ` + findMin(value1,value2) + "\n" + 
+          `The maximum between ${value1} and ${value2} is ` + findMax(value1,value2) + "\n" + 
+          `The power of ${value1} by ${value2} is ` + power(value1,value2))
+        break;           
+      default:
+        document.write("You did not enter a valid operation function")
+        break;             
+    }
+
+    var calcAgain = confirm("Do you want do another calculation?");
+  }
+
+
+
+
+
+  </script>
+</html>

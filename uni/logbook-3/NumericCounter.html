@@ -1,0 +1,29 @@
+<html>
+
+<body>
+    <script type="text/javascript">
+        var counter1 = 0;
+        var counter2 = 0;
+
+        const incrementCounter = (counter) => {
+
+            counter === 1 ? counter1++ : counter2++;
+            document.getElementById('counter1Display').innerText = 'Counter One : ' + counter1;
+            document.getElementById('counter2Display').innerText = 'Counter Two : ' + counter2;
+        }
+        const incrementCounter2 = () => counter2++;
+    </script>
+
+    <p id="counter1Display">Counter One : ${counter1}</p>
+    <p id="counter2Display">Counter Two : 0</p>
+
+
+</body>
+
+
+<button id='button1' onClick='incrementCounter(1)'>click </button>
+<button id='button2' onClick="incrementCounter(2)">click </button>
+
+
+
+</html>

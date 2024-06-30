@@ -1,0 +1,70 @@
+<html>
+
+<body>
+<p>
+    <button onClick='showPrompt()'> Click me to enter your name </button>
+</p>
+
+<p>
+    <button onClick='showAlert()'> Click on me to sort names alphabetically </button>
+</p>
+
+<p>
+    <button onClick='showAlertReverse()'> Click on me to sort names in reverse alphabetical order </button>
+</p>
+
+
+<script>
+    let personOne = '';
+    let personTwo = '';
+    let personThree = '';
+    let personArray = [];
+
+    function showPrompt() {
+
+        personArray.length = 0;
+
+        let personOne = prompt('Please enter name of Person 1', 'enter here.');
+        let personTwo = prompt('Please enter name of Person 2', 'enter here.');
+        let personThree = prompt('Please enter name of Person 3', 'enter here.');
+
+        if (personOne!= null && personTwo != null && personThree != null) {
+
+            personArray.push(personOne, personTwo, personThree);
+
+            outputNames();
+            
+        }
+        
+    }
+
+    function outputNames(){
+
+        for( person of personArray){
+
+            let element = document.createElement('p');
+            element.textContent = `Hello ${person} there are ${countCharacters(person)} letters in your name.`;
+            document.body.appendChild(element);
+        }
+    
+    }
+
+    function showAlert(){
+        personArray.sort();
+
+        alert('Here are the names sorted alphabetically:' + personArray);
+    }
+
+    function showAlertReverse(){
+        personArray.sort().reverse();
+
+        alert('Here are the names sorted alphabetically:' + personArray);
+    }
+
+    function countCharacters(name){
+
+        return name.length;
+    }
+
+</script>
+</body>

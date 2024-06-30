@@ -1,0 +1,29 @@
+<!DOCTYPE html> //This is a HTML5 doctype declaration
+<html xmlns="http://www.w3.org/1999/xhtml"> //This is a HTML5 namespace declaration
+<head>
+  <title>Weather API Fetch Test</title> //Title of the HTML page
+</head>
+<body>
+  <div>
+    <input type="text" id="weather-town" /> //Input field for user to enter town
+    <button onclick="searchWeather()">Search</button> //Button to trigger the searchWeather function
+    <br/><br/>
+    The current weather is: <span id="results"></span> //Display element for weather results
+  </div>
+
+  <script type="text/javascript"> // This is a HTML script tag that contains JavaScript code
+    const APIKey = 'ab2c9d8ba56c7e1446bf3bfbcdcea5b1' //API key used to access the OpenWeatherMap API
+    async function searchWeather() { //async method used to fetch data from the OpenWeatherMap API
+      try {
+        const town = document.getElementById('weather-town').value; //get value of the input field
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${town}&appid=${APIKey}`); //hit OpenWeatherMap API with use of API Key and town
+        const responseData = await response.json(); //saves repsonse to a JSON object
+        const weather = responseData.weather[0] //get the weather object from the JSON object
+        document.getElementById('results').textContent = `${weather.main} (${weather.description})`; //set weather result to results element on screen
+      } catch (error) {
+        console.error('Error fetching weather:', error); //incase of error, log the error to console
+      }
+    }
+  </script>
+</body>
+</html>
