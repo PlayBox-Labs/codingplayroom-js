@@ -8,6 +8,7 @@
     "axios": "^1.6.8"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.58.1",
     "typescript": "^5.4.5"
   }
 }
